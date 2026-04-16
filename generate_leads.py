@@ -151,7 +151,7 @@ th{{background:#f3f4f6;padding:10px 16px;text-align:left;font-size:11px;text-tra
 </style></head><body>
 <div class="card">
   <div class="hd">
-    <h1>⚡ Dine {n} leads fra Leadmotor</h1>
+    <h1>⚡ Dine {n} leads fra BUKA</h1>
     <p>Specialitet: <strong>{specialty}</strong> · {today}</p>
   </div>
   <div class="bd">
@@ -166,16 +166,16 @@ th{{background:#f3f4f6;padding:10px 16px;text-align:left;font-size:11px;text-tra
     <p style="margin-top:24px;color:#374151;font-size:14px">Eksklusivt til dig i <strong>30 dage</strong>.</p>
     <a href="mailto:esben@buka.dk?subject=Bestil+flere+leads" class="cta">Bestil flere leads →</a>
   </div>
-  <div class="ft">Leadmotor · esben@buka.dk</div>
+  <div class="ft">BUKA · esben@buka.dk</div>
 </div></body></html>"""
 
     r = requests.post(
         'https://api.resend.com/emails',
         headers={'Authorization': f'Bearer {RESEND_KEY}', 'Content-Type': 'application/json'},
         json={
-            'from': 'Leadmotor <esben@buka.dk>',
+            'from': 'BUKA <esben@buka.dk>',
             'to': [to],
-            'subject': f'Dine {n} leads fra Leadmotor',
+            'subject': f'Dine {n} leads fra BUKA',
             'html': html,
         },
         timeout=15,

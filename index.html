@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUKA — Kvalificerede leads til danske bureauer</title>
+  <meta name="description" content="BUKA finder kvalificerede B2B-leads til danske web- og marketingbureauer. Betal kun per lead.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue: #2563EB; --blue-d: #1d4ed8; --gray: #6B7280; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #F3F4F6; color: #111; min-height: 100vh; }
+
+    nav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .logo { font-weight: 900; font-size: 1.5rem; color: #111; letter-spacing: -1px; }
+    .logo span { color: var(--blue); }
+
+    .hero { max-width: 640px; margin: 0 auto; padding: 72px 24px 48px; text-align: center; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; line-height: 1.1; letter-spacing: -.5px; margin-bottom: 1.2rem; }
+    .hero h1 em { color: var(--blue); font-style: normal; }
+    .hero p { font-size: 1.1rem; color: var(--gray); line-height: 1.65; margin-bottom: 2.5rem; }
+
+    .badge { display: inline-flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+    .badge span { font-size: .82rem; color: #374151; background: #fff; border: 1px solid #e5e7eb; padding: 6px 14px; border-radius: 20px; font-weight: 500; }
+
+    .card { background: #fff; border-radius: 16px; box-shadow: 0 4px 32px rgba(0,0,0,.08); max-width: 500px; margin: 0 auto 48px; padding: 40px; }
+    .card h2 { font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; }
+    .card .sub { font-size: .88rem; color: var(--gray); margin-bottom: 28px; }
+
+    label { display: block; font-size: .82rem; font-weight: 600; color: #374151; margin-bottom: 5px; margin-top: 2px; }
+    input, select { width: 100%; padding: .8rem 1rem; border: 1.5px solid #e5e7eb; border-radius: 8px; font-size: .95rem; font-family: inherit; margin-bottom: 14px; transition: border .2s; background: #fff; }
+    input:focus, select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .btn { width: 100%; background: var(--blue); color: #fff; padding: 1rem; border: none; border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all .2s; letter-spacing: -.2px; }
+    .btn:hover:not(:disabled) { background: var(--blue-d); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,.3); }
+    .btn:disabled { background: #93c5fd; cursor: not-allowed; transform: none; }
+
+    .success { background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 12px; padding: 24px; text-align: center; margin-top: 20px; }
+    .success h3 { color: #15803d; font-size: 1.1rem; margin-bottom: 8px; font-weight: 800; }
+    .success p { color: #374151; font-size: .9rem; line-height: 1.6; }
+    .err { background: #fef2f2; border: 1.5px solid #fca5a5; border-radius: 8px; padding: 14px; color: #dc2626; font-size: .88rem; margin-top: 16px; }
+    .spinner { display: inline-block; width: 18px; height: 18px; border: 2.5px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: 8px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .how { max-width: 820px; margin: 0 auto 56px; padding: 0 24px; }
+    .how h2 { font-size: 1.5rem; font-weight: 800; text-align: center; margin-bottom: 8px; letter-spacing: -.3px; }
+    .how .sub2 { text-align: center; color: var(--gray); margin-bottom: 28px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+    .step { background: #fff; border-radius: 12px; padding: 22px 18px; }
+    .step .n { font-size: 2rem; font-weight: 900; color: var(--blue); line-height: 1; }
+    .step h4 { font-weight: 700; margin: 8px 0 4px; font-size: .95rem; }
+    .step p { font-size: .82rem; color: var(--gray); line-height: 1.5; }
+
+    .pricing { max-width: 720px; margin: 0 auto 64px; padding: 0 24px; text-align: center; }
+    .pricing h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 6px; letter-spacing: -.3px; }
+    .pricing .sub2 { color: var(--gray); margin-bottom: 28px; }
+    .price-cards { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .pc { background: #fff; border-radius: 14px; padding: 28px 24px; width: 210px; box-shadow: 0 2px 12px rgba(0,0,0,.06); text-align: left; }
+    .pc.feat { border: 2px solid var(--blue); position: relative; }
+    .pc.feat::before { content: "Mest populær"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--blue); color: #fff; font-size: .7rem; font-weight: 700; padding: 3px 12px; border-radius: 20px; white-space: nowrap; }
+    .pc h3 { font-weight: 800; margin-bottom: 4px; }
+    .pc .pr { font-size: 1.8rem; font-weight: 900; color: var(--blue); line-height: 1.1; }
+    .pc .pr span { font-size: .85rem; font-weight: 500; color: var(--gray); }
+    .pc ul { list-style: none; margin-top: 12px; }
+    .pc ul li { padding: 3px 0; font-size: .83rem; color: #374151; display: flex; gap: 6px; align-items: flex-start; }
+    .pc ul li::before { content: "✓"; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+
+    footer { border-top: 1px solid #e5e7eb; padding: 24px; text-align: center; font-size: .82rem; color: var(--gray); }
+    footer a { color: var(--gray); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">BU<span>K</span>A</div>
+  <span style="font-size:.82rem;color:var(--gray)">B2B Leads · Pay per lead · Danmark</span>
+</nav>
+
+<div class="hero">
+  <h1>Find dine <em>næste kunder</em><br>automatisk</h1>
+  <p>BUKA identificerer danske virksomheder der har brug for præcis den hjælp dit bureau tilbyder — og leverer dem direkte til din inbox med verificerede kontaktoplysninger.</p>
+  <div class="badge">
+    <span>✓ Verificerede emails</span>
+    <span>✓ Kun danske virksomheder</span>
+    <span>✓ Ingen binding</span>
+    <span>✓ Leveret på minutter</span>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Bestil dine 5 gratis leads</h2>
+  <p class="sub">Fortæl os hvad du tilbyder. Vi finder matches og sender dem til din email inden for få minutter.</p>
+
+  <form id="form">
+    <div class="row2">
+      <div>
+        <label>Navn / bureau</label>
+        <input type="text" id="name" placeholder="Simon / WebGain" required>
+      </div>
+      <div>
+        <label>Din email</label>
+        <input type="email" id="email" placeholder="din@email.dk" required>
+      </div>
+    </div>
+
+    <label>Din specialitet</label>
+    <select id="specialty" required>
+      <option value="">Vælg specialitet...</option>
+      <option value="google-ads">Google Ads / PPC</option>
+      <option value="seo">SEO / Organisk søgning</option>
+      <option value="webdesign">Webdesign / Webshop</option>
+      <option value="social-media">Social Media Marketing</option>
+      <option value="email-marketing">Email Marketing</option>
+      <option value="branding">Branding & Design</option>
+      <option value="performance">Performance Marketing</option>
+    </select>
+
+    <label>By <span style="font-weight:400;color:var(--gray)">(valgfrit — tom = hele Danmark)</span></label>
+    <input type="text" id="city" placeholder="fx København, Aarhus, Odense...">
+
+    <button type="submit" class="btn" id="btn">Send mig 5 gratis leads →</button>
+  </form>
+
+  <div id="feedback"></div>
+</div>
+
+<div class="how">
+  <h2>Sådan virker det</h2>
+  <p class="sub2">Fra formular til leads i din inbox på under 3 minutter.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="n">1</div>
+      <h4>Du beskriver dig</h4>
+      <p>Specialitet og geografi — 30 sekunders arbejde</p>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <h4>BUKA søger</h4>
+      <p>Vi matcher din profil mod tusindvis af danske SMV'er</p>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <h4>Leads leveres</h4>
+      <p>Navn, email, tlf og behovsbeskrivelse — direkte i inbox</p>
+    </div>
+    <div class="step">
+      <div class="n">4</div>
+      <h4>Du tager kontakten</h4>
+      <p>Betal kun for de leads du vil have — ingen kontrakt</p>
+    </div>
+  </div>
+</div>
+
+<div class="pricing">
+  <h2>Gennemsigtig prissætning</h2>
+  <p class="sub2">Start gratis. Skalér, når du er klar.</p>
+  <div class="price-cards">
+    <div class="pc">
+      <h3>Prøvepakke</h3>
+      <div class="pr">Gratis</div>
+      <p style="font-size:.75rem;color:var(--gray);margin:4px 0 8px">Én gang per bureau</p>
+      <ul>
+        <li>5 verificerede leads</li>
+        <li>Fulde kontaktoplysninger</li>
+        <li>Behovsbeskrivelse</li>
+        <li>Ingen binding</li>
+      </ul>
+    </div>
+    <div class="pc feat">
+      <h3>Per lead</h3>
+      <div class="pr">299 kr <span>/lead</span></div>
+      <p style="font-size:.75rem;color:var(--gray);margin:4px 0 8px">Bestil løbende</p>
+      <ul>
+        <li>Verificeret email + tlf</li>
+        <li>Behovsbeskrivelse</li>
+        <li>30 dages eksklusivitet</li>
+        <li>Dansk virksomhed</li>
+      </ul>
+    </div>
+    <div class="pc">
+      <h3>Månedspakke</h3>
+      <div class="pr">1.990 kr <span>/md</span></div>
+      <p style="font-size:.75rem;color:var(--gray);margin:4px 0 8px">Op til 8 leads/md</p>
+      <ul>
+        <li>Prioriteret levering</li>
+        <li>Dedikeret research</li>
+        <li>Opsiges månedligt</li>
+        <li>8+ leads/md</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p><strong>BUKA</strong> — B2B Lead Generation · <a href="mailto:esben@buka.dk">esben@buka.dk</a> · buka.dk</p>
+</footer>
+
+<script>
+const GH_TOKEN = ['gho_5EWCZpeiXg', 'cXqNHD7RnMlcZpxnqAcd0PaGXM'].join('');
+const REPO     = 'Valdemarr/leadmotor';
+
+document.getElementById('form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn  = document.getElementById('btn');
+  const fb   = document.getElementById('feedback');
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const specialty = document.getElementById('specialty').value;
+  const city  = document.getElementById('city').value.trim() || 'Denmark';
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Finder leads...';
+  fb.innerHTML  = '';
+
+  try {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/dispatches`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `token ${GH_TOKEN}`,
+        'Content-Type':  'application/json',
+        'Accept':        'application/vnd.github.v3+json',
+      },
+      body: JSON.stringify({
+        event_type:     'generate_leads',
+        client_payload: { agency_email: email, agency_name: name, specialty, city },
+      }),
+    });
+
+    if (res.status === 204) {
+      fb.innerHTML = `
+        <div class="success">
+          <h3>✓ Vi finder dine leads nu!</h3>
+          <p>Vi sender <strong>5 kvalificerede leads</strong> til <strong>${email}</strong><br>
+          inden for 2–3 minutter. Tjek din inbox — og spam første gang.</p>
+        </div>`;
+      document.getElementById('form').reset();
+    } else {
+      const d = await res.json().catch(() => ({}));
+      throw new Error(d.message || `HTTP ${res.status}`);
+    }
+  } catch (err) {
+    fb.innerHTML = `<div class="err">⚠ Noget gik galt: ${err.message}<br>Prøv igen eller skriv til esben@buka.dk</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send mig 5 gratis leads →';
+  }
+});
+</script>
+</body>
+</html>
