@@ -1,0 +1,29 @@
+name: Generate Leads
+
+on:
+  repository_dispatch:
+    types: [generate_leads]
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install requests
+
+      - name: Generate and email leads
+        env:
+          APOLLO_API_KEY: ${{ secrets.APOLLO_API_KEY }}
+          RESEND_EXTERNAL_API_KEY: ${{ secrets.RESEND_EXTERNAL_API_KEY }}
+          AGENCY_EMAIL: ${{ github.event.client_payload.agency_email }}
+          AGENCY_NAME: ${{ github.event.client_payload.agency_name }}
+          SPECIALTY: ${{ github.event.client_payload.specialty }}
+          CITY: ${{ github.event.client_payload.city }}
+        run: python generate_leads.py

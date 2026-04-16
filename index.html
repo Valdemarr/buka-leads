@@ -3,199 +3,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leadmotor – Kvalificerede leads til danske bureauer og freelancere</title>
-  <meta name="description" content="Vi finder dine næste kunder. Leadmotor leverer varme, kvalificerede leads til danske web- og marketingbureauer samt freelancere. Betal kun per lead.">
+  <title>Leadmotor — Kvalificerede leads til danske bureauer</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --blue: #2563EB;
-      --blue-dark: #1d4ed8;
-      --gray-900: #111827;
-      --gray-700: #374151;
-      --gray-500: #6B7280;
-      --gray-100: #F3F4F6;
-      --white: #FFFFFF;
-    }
-    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: var(--gray-900); line-height: 1.6; }
-    a { color: var(--blue); text-decoration: none; }
-    /* NAV */
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; background: white; z-index: 100; }
-    .logo { font-size: 1.4rem; font-weight: 800; color: var(--blue); letter-spacing: -0.5px; }
-    nav a.cta-nav { background: var(--blue); color: white; padding: .5rem 1.2rem; border-radius: 6px; font-weight: 600; font-size: .9rem; }
-    nav a.cta-nav:hover { background: var(--blue-dark); }
-    /* HERO */
-    .hero { padding: 5rem 2rem 4rem; text-align: center; max-width: 800px; margin: 0 auto; }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; line-height: 1.15; letter-spacing: -1px; margin-bottom: 1.2rem; }
+    :root { --blue: #2563EB; --blue-d: #1d4ed8; --gray: #6B7280; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #F3F4F6; color: #111; min-height: 100vh; }
+
+    nav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-weight: 900; font-size: 1.3rem; color: var(--blue); letter-spacing: -.5px; }
+
+    .hero { max-width: 640px; margin: 0 auto; padding: 64px 24px 40px; text-align: center; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.15; letter-spacing: -.5px; margin-bottom: 1rem; }
     .hero h1 span { color: var(--blue); }
-    .hero p { font-size: 1.15rem; color: var(--gray-700); max-width: 580px; margin: 0 auto 2rem; }
-    .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-primary { background: var(--blue); color: white; padding: .85rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: background .2s; }
-    .btn-primary:hover { background: var(--blue-dark); color: white; }
-    .btn-secondary { border: 2px solid var(--blue); color: var(--blue); padding: .85rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem; }
-    .trust-line { margin-top: 2rem; font-size: .85rem; color: var(--gray-500); }
-    /* HOW */
-    .section { padding: 4rem 2rem; }
-    .section-inner { max-width: 960px; margin: 0 auto; }
-    h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; margin-bottom: .5rem; letter-spacing: -.5px; }
-    .sub { color: var(--gray-500); margin-bottom: 2.5rem; font-size: 1.05rem; }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
-    .step { background: var(--gray-100); border-radius: 12px; padding: 1.5rem; }
-    .step-num { font-size: 1.8rem; font-weight: 900; color: var(--blue); margin-bottom: .5rem; }
-    .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .4rem; }
-    .step p { font-size: .9rem; color: var(--gray-700); }
-    /* PRICING */
-    .pricing-wrap { background: var(--gray-100); }
-    .pricing-cards { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
-    .card { background: white; border-radius: 12px; padding: 2rem; width: 280px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
-    .card.featured { border: 2.5px solid var(--blue); }
-    .card h3 { font-weight: 800; font-size: 1.1rem; margin-bottom: .3rem; }
-    .card .price { font-size: 2rem; font-weight: 900; color: var(--blue); margin: .5rem 0; }
-    .card .price span { font-size: 1rem; font-weight: 500; color: var(--gray-500); }
-    .card ul { list-style: none; margin: 1rem 0 1.5rem; }
-    .card ul li { padding: .3rem 0; font-size: .9rem; color: var(--gray-700); }
-    .card ul li::before { content: "✓ "; color: var(--blue); font-weight: 700; }
-    /* SOCIAL PROOF */
-    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-    .testimonial { background: var(--gray-100); border-radius: 12px; padding: 1.5rem; font-size: .95rem; color: var(--gray-700); }
-    .testimonial strong { display: block; margin-top: .8rem; color: var(--gray-900); font-size: .85rem; }
-    /* FORM */
-    .form-wrap { background: var(--blue); color: white; }
-    .form-wrap h2, .form-wrap .sub { color: white; }
-    .form-wrap .sub { color: rgba(255,255,255,.8); }
-    form { display: flex; flex-direction: column; gap: .9rem; max-width: 480px; margin: 0 auto; }
-    form input, form select, form textarea {
-      padding: .8rem 1rem; border-radius: 8px; border: none; font-size: 1rem;
-      font-family: inherit; outline: none;
-    }
-    form textarea { resize: vertical; min-height: 80px; }
-    form button { background: var(--gray-900); color: white; padding: .9rem; border-radius: 8px; font-weight: 700; font-size: 1rem; border: none; cursor: pointer; transition: background .2s; }
-    form button:hover { background: #000; }
-    /* FOOTER */
-    footer { padding: 2rem; text-align: center; font-size: .85rem; color: var(--gray-500); border-top: 1px solid #e5e7eb; }
+    .hero p { font-size: 1.05rem; color: var(--gray); line-height: 1.6; margin-bottom: 2rem; }
+
+    .card { background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,.07); max-width: 520px; margin: 0 auto 40px; padding: 36px; }
+    .card h2 { font-size: 1.15rem; font-weight: 800; margin-bottom: 6px; }
+    .card .sub { font-size: .9rem; color: var(--gray); margin-bottom: 24px; }
+
+    label { display: block; font-size: .85rem; font-weight: 600; color: #374151; margin-bottom: 4px; }
+    input, select { width: 100%; padding: .75rem 1rem; border: 1.5px solid #e5e7eb; border-radius: 8px; font-size: 1rem; font-family: inherit; margin-bottom: 16px; transition: border .2s; }
+    input:focus, select:focus { outline: none; border-color: var(--blue); }
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .btn { width: 100%; background: var(--blue); color: #fff; padding: .9rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background .2s; }
+    .btn:hover:not(:disabled) { background: var(--blue-d); }
+    .btn:disabled { background: #93c5fd; cursor: not-allowed; }
+
+    .success { background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 10px; padding: 20px; text-align: center; margin-top: 20px; }
+    .success h3 { color: #15803d; font-size: 1.1rem; margin-bottom: 6px; }
+    .success p { color: #374151; font-size: .9rem; }
+    .err { background: #fef2f2; border: 1.5px solid #fca5a5; border-radius: 8px; padding: 14px; color: #dc2626; font-size: .9rem; margin-top: 16px; }
+    .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; margin-right: 8px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .how { max-width: 800px; margin: 0 auto 60px; padding: 0 24px; }
+    .how h2 { font-size: 1.4rem; font-weight: 800; text-align: center; margin-bottom: 24px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
+    .step { background: #fff; border-radius: 12px; padding: 20px; text-align: center; }
+    .step .n { font-size: 1.8rem; font-weight: 900; color: var(--blue); }
+    .step h4 { font-weight: 700; margin: 6px 0 4px; font-size: .95rem; }
+    .step p { font-size: .82rem; color: var(--gray); }
+
+    .pricing { max-width: 700px; margin: 0 auto 60px; padding: 0 24px; text-align: center; }
+    .pricing h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; }
+    .pricing .sub2 { color: var(--gray); margin-bottom: 24px; font-size: .95rem; }
+    .price-cards { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .pc { background: #fff; border-radius: 12px; padding: 24px; width: 200px; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    .pc.feat { border: 2px solid var(--blue); }
+    .pc h3 { font-weight: 800; margin-bottom: 4px; }
+    .pc .pr { font-size: 1.6rem; font-weight: 900; color: var(--blue); }
+    .pc .pr span { font-size: .85rem; font-weight: 500; color: var(--gray); }
+    .pc ul { list-style: none; margin-top: 10px; font-size: .82rem; color: #374151; }
+    .pc ul li::before { content: "✓ "; color: var(--blue); }
+    .pc ul li { padding: 2px 0; }
   </style>
 </head>
 <body>
 
 <nav>
   <div class="logo">⚡ Leadmotor</div>
-  <a href="#kontakt" class="cta-nav">Få gratis leads →</a>
+  <span style="font-size:.85rem;color:var(--gray)">Leads til danske bureauer · Pay per lead</span>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Vi finder dine <span>næste kunder</span> — du betaler kun per lead</h1>
-  <p>Leadmotor leverer varme, kvalificerede leads til danske web- og marketingbureauer og freelancere. Ingen abonnement. Ingen binding. Bare kunder der mangler din hjælp.</p>
-  <div class="hero-cta">
-    <a href="#kontakt" class="btn-primary">Få 5 gratis leads nu</a>
-    <a href="#how" class="btn-secondary">Se hvordan det virker</a>
-  </div>
-  <p class="trust-line">✔ 100% gratis prøvepakke · ✔ Kun danske virksomheder · ✔ Ingen binding</p>
-</section>
+<div class="hero">
+  <h1>Få <span>kvalificerede leads</span><br>til dit bureau — automatisk</h1>
+  <p>Vi finder danske SMV'er der mangler præcis den hjælp, du tilbyder. Verificerede emails, fulde kontaktoplysninger, klar til brug.</p>
+</div>
 
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-  <div class="section-inner">
-    <h2>Så simpelt er det</h2>
-    <p class="sub">Fra tilmelding til første lead på under 48 timer.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Fortæl os om dig</h3>
-        <p>Hvilken type kunder vil du have? Branche, størrelse, geografi — vi sørger for resten.</p>
+<div class="card">
+  <h2>Bestil dine leads</h2>
+  <p class="sub">Udfyld formularen. Vi finder matches og sender dem direkte til din email inden for få minutter.</p>
+
+  <form id="form">
+    <div class="row2">
+      <div>
+        <label>Dit navn / bureau</label>
+        <input type="text" id="name" placeholder="Simon / WebGain" required>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Vi researcher og kvalificerer</h3>
-        <p>Vores team finder virksomheder, der aktivt leder efter hjælp inden for dit ekspertiseområde.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Du modtager leadsne</h3>
-        <p>Navn, firma, kontaktinfo og en kort beskrivelse af behovet — klar til opfølgning.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h3>Betal kun for dem du vil have</h3>
-        <p>Ingen kontrakt, ingen overraskelser. Bestil mere, når du er klar til vækst.</p>
+      <div>
+        <label>Din email</label>
+        <input type="email" id="email" placeholder="din@email.dk" required>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- PRICING -->
-<section class="section pricing-wrap">
-  <div class="section-inner" style="text-align:center">
-    <h2>Gennemsigtig prissætning</h2>
-    <p class="sub">Start gratis. Skalér, når du er klar.</p>
-    <div class="pricing-cards">
-      <div class="card">
-        <h3>Prøvepakke</h3>
-        <div class="price">Gratis</div>
-        <p style="font-size:.85rem;color:var(--gray-500);margin-bottom:.5rem">Én gang per bureau/freelancer</p>
-        <ul>
-          <li>5 kvalificerede leads</li>
-          <li>Fulde kontaktoplysninger</li>
-          <li>Behovsbeskrivelse</li>
-          <li>Ingen binding</li>
-        </ul>
-        <a href="#kontakt" class="btn-primary" style="display:block;text-align:center">Kom i gang</a>
-      </div>
-      <div class="card featured">
-        <h3>Per lead</h3>
-        <div class="price">299 kr <span>/ lead</span></div>
-        <p style="font-size:.85rem;color:var(--gray-500);margin-bottom:.5rem">Bestil løbende</p>
-        <ul>
-          <li>Verificerede kontakter</li>
-          <li>Branchefokuseret søgning</li>
-          <li>Dansk virksomhed</li>
-          <li>30-dages eksklusivitet</li>
-        </ul>
-        <a href="#kontakt" class="btn-primary" style="display:block;text-align:center">Bestil leads</a>
-      </div>
-      <div class="card">
-        <h3>Månedspakke</h3>
-        <div class="price">1.990 kr <span>/ md</span></div>
-        <p style="font-size:.85rem;color:var(--gray-500);margin-bottom:.5rem">8+ leads/md</p>
-        <ul>
-          <li>Op til 8 leads pr. måned</li>
-          <li>Prioriteret levering</li>
-          <li>Dedikeret research</li>
-          <li>Kan opsiges månedligt</li>
-        </ul>
-        <a href="#kontakt" class="btn-primary" style="display:block;text-align:center">Vælg pakke</a>
-      </div>
+    <label>Din specialitet</label>
+    <select id="specialty" required>
+      <option value="">Vælg specialitet...</option>
+      <option value="google-ads">Google Ads / PPC</option>
+      <option value="seo">SEO / Organisk søgning</option>
+      <option value="webdesign">Webdesign / Webshop</option>
+      <option value="social-media">Social Media Marketing</option>
+      <option value="email-marketing">Email Marketing</option>
+      <option value="branding">Branding & Design</option>
+      <option value="performance">Performance Marketing</option>
+    </select>
+
+    <label>Geografisk fokus <span style="font-weight:400;color:var(--gray)">(valgfrit)</span></label>
+    <input type="text" id="city" placeholder="fx København, Aarhus — tom = hele Danmark">
+
+    <button type="submit" class="btn" id="btn">Find mig 5 gratis leads →</button>
+  </form>
+
+  <div id="feedback"></div>
+</div>
+
+<div class="how">
+  <h2>Sådan virker det</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h4>Du fortæller os om dig</h4><p>Specialitet og geografisk fokus</p></div>
+    <div class="step"><div class="n">2</div><h4>Vi søger i databasen</h4><p>Matcher din profil mod tusindvis af danske virksomheder</p></div>
+    <div class="step"><div class="n">3</div><h4>Leads leveres</h4><p>Direkte i din inbox — navn, email, tlf, behov</p></div>
+    <div class="step"><div class="n">4</div><h4>Du tager kontakten</h4><p>Betal kun for de leads du vil have</p></div>
+  </div>
+</div>
+
+<div class="pricing">
+  <h2>Gennemsigtig prissætning</h2>
+  <p class="sub2">Første 5 leads er gratis. Derefter:</p>
+  <div class="price-cards">
+    <div class="pc">
+      <h3>Prøvepakke</h3>
+      <div class="pr">Gratis</div>
+      <ul><li>5 leads</li><li>Verificerede emails</li><li>Ingen binding</li></ul>
+    </div>
+    <div class="pc feat">
+      <h3>Per lead</h3>
+      <div class="pr">299 kr <span>/lead</span></div>
+      <ul><li>Verificeret kontakt</li><li>Behovsbeskrivelse</li><li>30 dages eksklusivitet</li></ul>
+    </div>
+    <div class="pc">
+      <h3>Månedspakke</h3>
+      <div class="pr">1.990 kr <span>/md</span></div>
+      <ul><li>8 leads/md</li><li>Prioritet levering</li><li>Kan opsiges</li></ul>
     </div>
   </div>
-</section>
+</div>
 
-<!-- FORM -->
-<section class="section form-wrap" id="kontakt">
-  <div class="section-inner" style="text-align:center">
-    <h2>Få dine 5 gratis leads</h2>
-    <p class="sub">Udfyld formularen — vi vender tilbage inden 24 timer.</p>
-    <form action="mailto:esben@buka.dk" method="GET" enctype="text/plain">
-      <input type="text" name="name" placeholder="Dit navn" required>
-      <input type="email" name="email" placeholder="Din email" required>
-      <input type="text" name="company" placeholder="Firmanavn (valgfrit)">
-      <select name="type">
-        <option value="">Hvad er du? (valgfrit)</option>
-        <option value="freelancer">Freelancer</option>
-        <option value="bureau">Webbureau</option>
-        <option value="marketing">Marketingbureau</option>
-        <option value="andet">Andet</option>
-      </select>
-      <textarea name="message" placeholder="Beskriv gerne din ideelle kunde (branche, størrelse, behov)..."></textarea>
-      <button type="submit">Send mig 5 gratis leads →</button>
-    </form>
-    <p style="margin-top:1rem;font-size:.8rem;opacity:.7">Vi deler ikke dine oplysninger med tredjepart. Ingen spam.</p>
-  </div>
-</section>
+<script>
+// GitHub token with workflow scope — will be replaced at deploy time
+const GH_TOKEN = 'GITHUB_TOKEN_PLACEHOLDER';
+const REPO = 'Valdemarr/leadmotor';
 
-<!-- FOOTER -->
-<footer>
-  <p><strong>Leadmotor</strong> · Kvalificerede B2B-leads til danske bureauer og freelancere</p>
-  <p style="margin-top:.4rem">© 2026 Leadmotor · <a href="mailto:esben@buka.dk" style="color:var(--gray-500)">esben@buka.dk</a></p>
-</footer>
+document.getElementById('form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('btn');
+  const fb  = document.getElementById('feedback');
 
+  const name     = document.getElementById('name').value.trim();
+  const email    = document.getElementById('email').value.trim();
+  const specialty = document.getElementById('specialty').value;
+  const city     = document.getElementById('city').value.trim() || 'Denmark';
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Finder leads...';
+  fb.innerHTML = '';
+
+  try {
+    const res = await fetch(`https://api.github.com/repos/${REPO}/dispatches`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `token ${GH_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github.v3+json',
+      },
+      body: JSON.stringify({
+        event_type: 'generate_leads',
+        client_payload: { agency_email: email, agency_name: name, specialty, city },
+      }),
+    });
+
+    if (res.status === 204) {
+      fb.innerHTML = `
+        <div class="success">
+          <h3>✓ Vi er i gang!</h3>
+          <p>Dine leads genereres nu og sendes til <strong>${email}</strong> inden for 2–3 minutter.<br><br>
+          Tjek din inbox — og spam-mappen første gang.</p>
+        </div>`;
+    } else {
+      const data = await res.json().catch(() => ({}));
+      throw new Error(data.message || `HTTP ${res.status}`);
+    }
+  } catch (err) {
+    fb.innerHTML = `<div class="err">⚠ ${err.message}</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Find mig 5 gratis leads →';
+  }
+});
+</script>
 </body>
 </html>
